@@ -27,7 +27,7 @@ Best Logistic Regression parameters: {'C': 1, 'penalty': 'l1', 'solver': 'liblin
 Best SVM parameters: {'C': 1, 'degree': 3, 'gamma': 'auto', 'kernel': 'linear'}
 Logistic Regression performed the best overall both before and after tuning.
 
-Tech Stack
+Tech Stack:
 Python
 pandas
 scikit-learn
