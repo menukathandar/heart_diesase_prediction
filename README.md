@@ -19,9 +19,8 @@ Hyperparameter tuning: uses GridSearchCV to find the best parameters for both mo
 
 Results
 
-Model	            Test Accuracy	        CV Accuracy	                    Test Accuracy (Tuned)
-Logistic Regression	96.7%	                    83.9%	                        96.7%
-SVM	                86.7%	                    80.9%	                        93.3%
+Logistic Regression |	Test Accuracy:96.7%	, CV Accuracy:83.9%	,Test Accuracy (Tuned):96.7%
+SVM	 | Test Accuracy:86.7%, CV Accuracy:80.9% ,Test Accuracy (Tuned):93.3%
 
 Best Logistic Regression parameters: {'C': 1, 'penalty': 'l1', 'solver': 'liblinear'}
 
