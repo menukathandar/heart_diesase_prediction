@@ -19,9 +19,9 @@ Hyperparameter tuning: uses GridSearchCV to find the best parameters for both mo
 
 Results
 
-Model	Test Accuracy	CV Accuracy	Test Accuracy (Tuned)
-Logistic Regression	96.7%	83.9%	96.7%
-SVM	86.7%	80.9%	93.3%
+Model	            Test Accuracy	        CV Accuracy	                    Test Accuracy (Tuned)
+Logistic Regression	96.7%	                    83.9%	                        96.7%
+SVM	                86.7%	                    80.9%	                        93.3%
 
 Best Logistic Regression parameters: {'C': 1, 'penalty': 'l1', 'solver': 'liblinear'}
 
@@ -40,6 +40,6 @@ How to Run
     pip install pandas scikit-learn
 4. Run the script:
     python heart_disease_prediction.py
-    
+
 Notes
 This project was done as part of my machine learning coursework to practice data preprocessing, model evaluation, and hyperparameter tuning.
