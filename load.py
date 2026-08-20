@@ -46,3 +46,11 @@ print(dataset.head())
 
 #Checking dataset shape to make sure we have the same no of columns and rows as expected
 print(dataset.shape)
+
+#Defining input variables and the target variable
+x = dataset.drop('Diagnosis', axis = 1) #axis = 1 means drop row not column
+y = dataset['Diagnosis']
+
+#Quick check
+print(x.shape) # Output is (297, 13)
+print(y.shape) # Output is (297, )
