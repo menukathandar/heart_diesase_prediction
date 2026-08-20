@@ -71,3 +71,24 @@ x_train_norm = norm.transform(x_train)
 
 #transforming testing data
 x_test_norm = norm.transform(x_test)
+
+#Training a model with logistic regression and SVM for classification
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+
+#logistic regression model
+model = LogisticRegression(solver="liblinear")
+model.fit(x_train_norm, y_train)
+test_score = model.score(x_test_norm, y_test)
+print(f'Testing accuracy of LR: {test_score}')
+
+#Support Vector Classifier
+model = SVC()
+model.fit(x_train_norm, y_train)
+test_score = model.score(x_test_norm, y_test)
+print(f'Testing accuracy of SVC: {test_score}')
+
+#The outputs are : Testing accuracy of LR: 0.9666666666666667
+#Testing accuracy of SVC: 0.8666666666666667
+
+#COnclusion regarding this: LR got about 96.7% of predictions correct and SVC got about 86.7% correct. So, in this scenario, LR performed better.
