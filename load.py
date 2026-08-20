@@ -29,3 +29,17 @@ print(dataset.duplicated().any())
 print(dataset['Sex'].value_counts(),'\n')
 print(dataset['Chest Pain Type'].value_counts(),'\n')
 print(dataset['Fasting Blood Sugar'].value_counts(),'\n')
+
+# SInce Sex and Fasting Blood SUgar are binary variables, so we can use 0 and 1 to replace them
+#For variable sex: 1 = female,  0 = male
+#For Fasting Blood SUgar: 1 = True, 0 = False
+#Based on domain expert advice, we can use following rule to transform the chest pain type
+# Value 1 = typical angina
+# Value 2 = atypical angina
+# VAlue 3 = non-anginal pain
+# Value 4 = asymptomatic
+
+dataset['Sex'] = dataset['Sex'].replace({'female': 1, 'male': 0})
+dataset['Fasting Blood Sugar'] = dataset['Fasting Blood Sugar'].replace({True: 1, False: 0})
+dataset['Chest Pain Type'] = dataset['Chest Pain Type'].replace({'typical angina': 1, 'atypical angina': 2, 'non-anginal pain': 3, 'asymptomatic': 4})
+print(dataset.head())
