@@ -111,3 +111,14 @@ print(f'Average accuracy of SVM is {results.mean()}')
 #The output is Average accuracy of LR is 0.8389937106918239
 #Average accuracy of SVM is 0.8089447938504544
 print(results)
+
+#Optimizaing the logistic regression models with cross validation
+from sklearn.model_selection import GridSearchCV
+grid_params_lr = {
+    'penalty': ['l1', 'l2'],
+    'C': [1, 10],
+    'solver': ['saga', 'liblinear']
+}
+lr = LogisticRegression(max_iter = 150)
+gs_lr_result = GridSearchCV(lr, grid_params_lr, cv = kfold).fit(x_train_norm, y_train)
+print(gs_lr_result.best_score_)
