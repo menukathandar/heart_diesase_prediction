@@ -59,3 +59,15 @@ print(y.shape) # Output is (297, )
 #(Using 10% of dataset for testing with a random state of 1 )
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.1, random_state=1)
+
+#Applying normalisation on both training and testing dataset
+from sklearn.preprocessing import MinMaxScaler
+
+#fitting scalar on training data
+norm = MinMaxScaler().fit(x_train)
+
+#transforming training data
+x_train_norm = norm.transform(x_train)
+
+#transforming testing data
+x_test_norm = norm.transform(x_test)
