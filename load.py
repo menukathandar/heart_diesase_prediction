@@ -20,3 +20,12 @@ dataset[cols] = dataset[cols].astype(int)
 
 #checking the datatype after changing from float to int
 print(dataset.dtypes)
+
+#Checking for any duplicate rows
+print(dataset.duplicated().any())
+# Since the output is false, so there are no any duplicate rows
+
+#Checking value count for categorical variables
+print(dataset['Sex'].value_counts(),'\n')
+print(dataset['Chest Pain Type'].value_counts(),'\n')
+print(dataset['Fasting Blood Sugar'].value_counts(),'\n')
