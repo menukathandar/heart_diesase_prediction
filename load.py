@@ -112,7 +112,7 @@ print(f'Average accuracy of SVM is {results.mean()}')
 #Average accuracy of SVM is 0.8089447938504544
 print(results)
 
-#Optimizaing the logistic regression models with cross validation
+#Optimizing the logistic regression models with cross validation
 from sklearn.model_selection import GridSearchCV
 grid_params_lr = {
     'penalty': ['l1', 'l2'],
@@ -125,7 +125,25 @@ print(gs_lr_result.best_score_)
 
 #Evaluating the trained Logistic regression model using the testing dataset
 test_accuracy = gs_lr_result.best_estimator_.score(x_test_norm, y_test)
-print(f'Accuracy in testing is {test_accuracy}' )
+print(f'Accuracy in testing using logistic regression is {test_accuracy}' )
 
 #Checking the parameters for best selected model
 print(f'The best parameters are: {gs_lr_result.best_params_}')
+
+#Optimising the SVM models with cross validation
+grid_params_svc = {
+    'kernel': ['linear', 'poly'],
+    'C': [1, 10],
+    'degree': [3, 8],
+    'gamma': ['auto','scale']
+}
+svc = SVC()
+gs_svc_result = GridSearchCV(svc, grid_params_svc, cv=kfold).fit(x_train_norm, y_train)
+print(gs_svc_result.best_score_)
+
+#Evaluating the trained svm model using the testing dataset
+test_accuracy = gs_svc_result.best_estimator_.score(x_test_norm, y_test)
+print(f'Accuracy in testing using svm model is {test_accuracy}')
+
+#Checking the parameters for best selected model
+print(f'The best parameters are {gs_svc_result.best_params_} ')
