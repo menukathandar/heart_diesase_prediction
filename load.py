@@ -92,3 +92,22 @@ print(f'Testing accuracy of SVC: {test_score}')
 #Testing accuracy of SVC: 0.8666666666666667
 
 #COnclusion regarding this: LR got about 96.7% of predictions correct and SVC got about 86.7% correct. So, in this scenario, LR performed better.
+
+#training a model with 5-fold cross validation
+#setting random state as 2
+from sklearn.model_selection import KFold
+kfold = KFold(n_splits = 5, shuffle = True, random_state = 2)
+
+#Getting the average accuracy scores based on the cross validation results and evaluate both models on the testing dataset
+from sklearn.model_selection import cross_val_score
+model = LogisticRegression(solver = 'liblinear')
+results = cross_val_score(model, x_train_norm, y_train, cv = kfold)
+print(f'Average accuracy of LR is {results.mean()}')
+
+model = SVC()
+results = cross_val_score(model, x_train_norm, y_train, cv = kfold)
+print(f'Average accuracy of SVM is {results.mean()}')
+
+#The output is Average accuracy of LR is 0.8389937106918239
+#Average accuracy of SVM is 0.8089447938504544
+print(results)
