@@ -43,3 +43,6 @@ dataset['Sex'] = dataset['Sex'].replace({'female': 1, 'male': 0})
 dataset['Fasting Blood Sugar'] = dataset['Fasting Blood Sugar'].replace({True: 1, False: 0})
 dataset['Chest Pain Type'] = dataset['Chest Pain Type'].replace({'typical angina': 1, 'atypical angina': 2, 'non-anginal pain': 3, 'asymptomatic': 4})
 print(dataset.head())
+
+#Checking dataset shape to make sure we have the same no of columns and rows as expected
+print(dataset.shape)
