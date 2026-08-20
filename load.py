@@ -122,3 +122,10 @@ grid_params_lr = {
 lr = LogisticRegression(max_iter = 150)
 gs_lr_result = GridSearchCV(lr, grid_params_lr, cv = kfold).fit(x_train_norm, y_train)
 print(gs_lr_result.best_score_)
+
+#Evaluating the trained Logistic regression model using the testing dataset
+test_accuracy = gs_lr_result.best_estimator_.score(x_test_norm, y_test)
+print(f'Accuracy in testing is {test_accuracy}' )
+
+#Checking the parameters for best selected model
+print(f'The best parameters are: {gs_lr_result.best_params_}')
